@@ -1,0 +1,51 @@
+<script type="text/javascript">
+	
+//继承
+function a(){
+	this.mix = function(){
+		alert(this.a + this.b);
+	}
+}
+
+function b(){
+	this.a = 4;
+	this.b = 9;
+	a.apply(this);
+}
+var test = new b();
+test.mix();
+
+
+	
+// 工厂	
+function factory(){
+	return (arguments[0] * arguments[1] + this.c1);	
+}
+function M(c1){
+	this.c1 = c1;	
+	this.run = function(){
+		return factory.apply(this, arguments);
+	}	
+}
+for(var i=0; i<5; i++){
+	var obj = new M(i);
+	alert(obj.run(5, 3)); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
